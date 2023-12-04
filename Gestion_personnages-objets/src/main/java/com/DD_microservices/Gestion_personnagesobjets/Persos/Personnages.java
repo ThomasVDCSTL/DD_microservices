@@ -8,31 +8,28 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public abstract class Personnages  {
+public abstract class Personnages {
     @Id
-    protected  int id;
+    protected int id;
 
-
+    protected int life;
     protected String name;
-   protected String type;
+    protected String type;
     @Column(name = "strength")
-    protected int value ;
+    protected int forceAttack;
 
 
-
-
-
-    public Personnages(){
+    public Personnages() {
 
     }
 
 
-    public Personnages( String name, String type, int life, int value) {
+    public Personnages(String name, String type, int life, int value) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.life = life;
-        this.value = value;
+        this.forceAttack = forceAttack;
     }
 
     public int getId() {
@@ -52,15 +49,16 @@ public abstract class Personnages  {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
     public int getValue() {
-        return value;
+        return forceAttack;
     }
 
     public void setValue(int value) {
-        this.value = value;
+        this.forceAttack = value;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {
@@ -74,20 +72,16 @@ public abstract class Personnages  {
     public void setLife(int life) {
         this.life = life;
     }
-    public int getPosition() {
-        return position;
-    }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
+
+
     @Override
     public String toString() {
         return
                 "id=" + id +
-                        "\n "+ name+ " + name + 0" +
+                        "\n " + name + " + name + 0" +
                         "\n type='" + type +
-                        "\n life=" + life ;
+                        "\n life=" + life;
     }
 
 

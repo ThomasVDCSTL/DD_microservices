@@ -4,13 +4,13 @@ import com.DD_microservices.Gestion_personnagesobjets.Persos.Fighter;
 import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnages;
 
 public abstract class Enemy extends Personnages implements Fighter {
-    public Enemy(String name, String type, int life, int value) {
-        super(name, type, life, value);
+    public Enemy(String name, String type, int life, int forceAttack) {
+        super(name, type, life, forceAttack);
     }
 
     @Override
     public int attaque() {
-        return this.value;
+        return this.forceAttack;
     }
 
     @Override

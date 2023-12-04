@@ -14,7 +14,7 @@ public class Warrior extends Personnages {
         return
                 "--             Player Info             --" +
                         "\n             Class : " + "Guerrier" +
-                        "\n             force attaque :  " + value +
+                        "\n             force attaque :  " + forceAttack +
                         "\n             vie : " + getLife();
     }
 

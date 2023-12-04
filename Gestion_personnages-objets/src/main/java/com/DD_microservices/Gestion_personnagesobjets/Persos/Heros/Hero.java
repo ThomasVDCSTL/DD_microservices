@@ -6,17 +6,15 @@ import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnages;
 public abstract class Hero extends Personnages implements Fighter {
 
 
-    public Hero(String name, String type, int life, int value) {
-        super(name, type, life, value);
+    public Hero(String name, String type, int life, int forceAttack) {
+        super(name, type, life,forceAttack);
     }
 
-    /* Méthode a definir ensemble
-@todo interaction de combat
- */
+
     @Override
     public int attaque() {
 
-        return value;
+        return forceAttack;
     }
 
     @Override
