@@ -2,8 +2,11 @@ package com.DD_microservices.Gestion_game.model;
 
 import com.DD_microservices.Gestion_game.model.Misc.Hero;
 import com.DD_microservices.Gestion_game.model.Board.Board;
+import jakarta.persistence.Entity;
+import org.springframework.stereotype.Repository;
 
 public class Game {
+
     private int position;
     private int dice;
     private Board board;
