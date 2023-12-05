@@ -24,8 +24,6 @@ public class Board {
         for (int i = 0; i < 64; i++) {
             if (i<10) {
                 board.add(new CaseVide(i));
-            } else if (i < 25) {
-                board.add(new Enemy(i));
             } else {
                 board.add(new Item(i));
             }
