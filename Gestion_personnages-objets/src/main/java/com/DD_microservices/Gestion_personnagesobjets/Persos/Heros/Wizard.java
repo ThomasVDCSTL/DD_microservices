@@ -1,8 +1,8 @@
 package com.DD_microservices.Gestion_personnagesobjets.Persos.Heros;
 
-import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnages;
+import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnage;
 
-public class Wizard extends Personnages {
+public class Wizard extends Personnage {
 
 
     public Wizard( String name, String type, int life, int forceAttack) {
@@ -16,7 +16,7 @@ public class Wizard extends Personnages {
         return
                 "--             Player Info             --" +
                         "\n             Class : " + "Guerrier" +
-                        "\n             force attaque :  " + forceAttack +
+                        "\n             force attaque :  " + strength +
                         "\n             vie : " + getLife();
     }
 

@@ -1,16 +1,27 @@
 package com.DD_microservices.Gestion_personnagesobjets.Persos.Enemy;
 
 import com.DD_microservices.Gestion_personnagesobjets.Persos.Fighter;
-import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnages;
+import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnage;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-public abstract class Enemy extends Personnages implements Fighter {
+@Entity
+public abstract class Enemy extends Personnage {
+    @Id
+    private int id;
+
+
     public Enemy(String name, String type, int life, int forceAttack) {
         super(name, type, life, forceAttack);
     }
 
+    public Enemy() {
+
+    }
+
     @Override
     public int attaque() {
-        return this.forceAttack;
+        return this.strength;
     }
 
     @Override
