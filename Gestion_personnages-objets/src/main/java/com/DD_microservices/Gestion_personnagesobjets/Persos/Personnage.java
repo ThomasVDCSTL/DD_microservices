@@ -4,6 +4,7 @@ package com.DD_microservices.Gestion_personnagesobjets.Persos;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Table( name = "perso")
 @Entity
@@ -12,6 +13,7 @@ public class Personnage implements Fighter {
     @Id
     protected int id;
 
+    @Transient
     protected int life;
     protected String name;
     protected String type;
@@ -22,7 +24,6 @@ public class Personnage implements Fighter {
     public Personnage() {
 
     }
-
 
     public Personnage(String name, String type, int life, int strength) {
         this.name = name;
