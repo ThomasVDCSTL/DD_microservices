@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DD_microservices.iml" filepath="$PROJECT_DIR$/.idea/DD_microservices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Gestion_game/Gestion_game.iml" filepath="$PROJECT_DIR$/Gestion_game/Gestion_game.iml" />
     </modules>
   </component>
 </project>
