@@ -20,9 +20,10 @@ public class Enemy extends CaseVide {
     }
 
     public int interaction(Hero hero) {
-        System.out.println("Pouf, je rencontre un ennemi!");
 
-        System.out.println("Que veux tu faire ? Attaquer(1) ou fuir(2)?");
+//        System.out.println("Pouf, je rencontre un ennemi!");
+
+//        System.out.println("Que veux tu faire ? Attaquer(1) ou fuir(2)?");
         Scanner choice1 = new Scanner(System.in);  // Create a Scanner object
         String attaqueFuite = choice1.nextLine();// Read user input
 
@@ -34,24 +35,16 @@ public class Enemy extends CaseVide {
 
                 if (getLife() > 0) {
                     hero.setLife(hero.getLife() - getForceAttack());
-                    System.out.println("L'ennemi t'a touché ! Tes nouveaux points de vie: " + hero.getLife());
+//                    System.out.println("L'ennemi t'a touché ! Tes nouveaux points de vie: " + hero.getLife());
 
                 } else {
-                    System.out.println("Bravo, tu as vaincu l'ennemi, il a disparu !");
-                }
-
-                System.out.println("Tes PV: " + hero.getLife());
-
-                if (getLife() < 0) {
-                    System.out.println("Ses PV: 0");
-                } else {
-                    System.out.println("Ses PV: " + getLife());
+//                    System.out.println("Bravo, tu as vaincu l'ennemi, il a disparu !");
                 }
             }
 
         } else {
             dice = 1 + (int) (Math.random() * (6));
-            System.out.println("Tu recules de " + dice + " cases.");
+//            System.out.println("Tu recules de " + dice + " cases.");
             hero.setPosition(hero.getPosition() - dice);
         }
 

@@ -1,6 +1,7 @@
 package com.DD_microservices.Gestion_game.web.controller;
 
 import com.DD_microservices.Gestion_game.model.Game;
+import com.DD_microservices.Gestion_game.model.Misc.Hero;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GameController {
         private Game game;
+        private Hero hero = new Hero(10, 8, "Warrior");
         public GameController() {
             this.game = game;
         }
@@ -17,9 +19,16 @@ public class GameController {
             return "Bienvenue, tu es un " + "???, " + "tu as " + "??? " +
                     "de points de vie et " + "??? " +  "d'attaque. Que veux-tu faire ? Jouer(1) / Quitter(2) ";
         }
+        @GetMapping(value = "/game/2")
+        public String leave() {
+            return "Tu quittes le jeu.";
+        }
 
-//        @PostMapping(value = "game/{choix1}")
-//        public int choice1(@pathvariable?) {
-//            return 1 ou 2, selon le choix
-//        }
+        @GetMapping(value = "/game/1")
+          public String startGame() {
+            game = new Game(hero);
+            return game.play(hero);
+        }
+
+
 }

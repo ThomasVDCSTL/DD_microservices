@@ -12,7 +12,7 @@ public class CaseVide extends Tyle {
     }
 
     public int interaction(Hero hero) {
-        System.out.println("Ouf !");
+//        System.out.println("Ouf !");
         return 0;
     }
 

@@ -25,32 +25,27 @@ public class Game {
     public void go() {
         tossDice();
         position += dice;
-        System.out.println("Tu as fait " + dice);
         if (position > 64) { position = 64; }
-        System.out.println("Tu es sur la case " + position + "/64");
+//            return "Tu as fait " + dice + ", et tu es sur la case " + position + "/64";
     }
 
-    public void play(/* TypeInteraction choixJoueur */) {
-
-        System.out.println(hero);
-
-        System.out.println("Tu étais sur la case " + hero.getPosition() + "/64");
+    public String play(Hero hero) {
 
         while (position < board.getSize()) {
 
             go();
-            board.showCaseInfo(position - 1);
+//            board.showCaseInfo(position - 1);
 
             int interact = board.makeInteraction(position-1, hero);
 
-            // interaction avec ennemy -> return niveau de vie de l'ennemi, si <= 0, ennemi mort
+//             interaction avec ennemy -> return niveau de vie de l'ennemi, si <= 0, ennemi mort
             if (interact <= 0) {
                 board.eraseCase(position-1);
             }
 
-            if (position >= board.getSize()) {
-                System.out.println("Tu as gagné");
-            }
+//            if (position >= board.getSize()) {
+//                return "Gagné !";
+//            }
 
 //          Si le niveau de vie du heros est <0
 
@@ -69,6 +64,7 @@ public class Game {
 //                System.out.println("Points d'attaque: " + perso.getForceAttaque());
 //            }
         }
+        return "tu es sur la case " + position;
     }
 
 }

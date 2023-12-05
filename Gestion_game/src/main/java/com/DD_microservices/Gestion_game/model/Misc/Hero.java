@@ -6,6 +6,12 @@ public class Hero {
     private int life;
     private String type;
 
+    public Hero(int forceAttack, int life, String type) {
+        this.forceAttack = forceAttack;
+        this.life = life;
+        this.type = type;
+    }
+
     public String toString() {
         return "Je suis un Herooos";
     }
