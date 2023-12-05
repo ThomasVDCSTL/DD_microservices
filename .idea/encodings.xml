@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Gestion_game/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gestion_joueurs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gestion_personnages-objets/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gestion_sauvegardes/src/main/java" charset="UTF-8" />
+  </component>
+</project>
