@@ -1,35 +1,36 @@
 package com.DD_microservices.Gestion_personnagesobjets.Persos;
 
 
+import com.DD_microservices.Gestion_personnagesobjets.Objects.Item;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
-@Table( name = "perso")
+@Table(name = "perso")
 @Entity
 public class Personnage implements Fighter {
 
     @Id
     protected int id;
-
+    @Transient
+    protected Item arme;
     @Transient
     protected int life;
     protected String name;
     protected String type;
+    protected  int strength;
 
-    protected int strength;
-
-
-    public Personnage() {
-
-    }
 
     public Personnage(String name, String type, int life, int strength) {
         this.name = name;
         this.type = type;
         this.life = life;
         this.strength = strength;
+    }
+
+    public Personnage() {
+
     }
 
     public int getId() {
@@ -68,6 +69,7 @@ public class Personnage implements Fighter {
     public int getLife() {
         return life;
     }
+
     public int getVie() {
         return this.life;
     }
@@ -77,14 +79,24 @@ public class Personnage implements Fighter {
     }
 
     public int attaque() {
-        return strength;
+        return strength + arme.getForceAttack();
     }
 
     public boolean isAlive() {
-        return this.life > 0 ;
+        return this.life > 0;
     }
 
-    public void encaisse(Fighter adversaire) { setLife((getVie()- adversaire.attaque())); }
+    public void encaisse(Fighter adversaire) {
+        setLife((getVie() - adversaire.attaque()));
+    }
+
+    public Item getArme() {
+        return arme;
+    }
+
+    public void setArme(Item arme) {
+        this.arme = arme;
+    }
 
     @Override
     public String toString() {
@@ -95,7 +107,7 @@ public class Personnage implements Fighter {
                         "\n life=" + life;
     }
 
-    public void interaction(Fighter player) {
+    public void StartFight(Fighter player) {
 
         while (this.isAlive() && player.isAlive()) {
             this.encaisse(player);
