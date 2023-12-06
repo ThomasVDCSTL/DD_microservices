@@ -10,6 +10,7 @@ public class Weapon extends Item{
         this.name = name;
         this.value = value;
     }
+
     public int interaction(Personnage player) {
         if (player.getType().equalsIgnoreCase("Warrior")) {
             player.setArme(this);
@@ -19,4 +20,11 @@ public class Weapon extends Item{
         return player.getStrength();
     }
 
+    @Override
+    public String toString() {
+        return "Weapon{" +
+                "name='" + name + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

@@ -20,4 +20,12 @@ public class Potion extends Item {
         return player.getLife();
     }
 
+    @Override
+    public String toString() {
+        return "Potion{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

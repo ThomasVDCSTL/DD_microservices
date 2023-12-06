@@ -2,7 +2,7 @@ package com.DD_microservices.Gestion_game.model.Misc.Items;
 
 import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 
-public class Spell extends Item{
+public class Spell extends Item {
     private String name;
 
     private String type;
@@ -21,4 +21,13 @@ public class Spell extends Item{
         }
         return player.getStrength();
     }
+
+    @Override
+    public String toString() {
+        return "Spell{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
 }
