@@ -1,6 +1,6 @@
 package com.DD_microservices.Gestion_personnagesobjets.Persos;
 
-public interface Fighter {
+public interface Fighter{
     int attaque();
 
     //méthode defence (perte de pointspour le heros)
