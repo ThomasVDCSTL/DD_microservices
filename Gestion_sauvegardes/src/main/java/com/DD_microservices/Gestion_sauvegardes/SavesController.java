@@ -11,11 +11,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-@RestController
 @Repository
 public class SavesController {
     private final SavesDAO savesDAO;
-    private RestTemplate restTemplate = new RestTemplate();
 
     public SavesController(SavesDAO savesDAO) {
         this.savesDAO = savesDAO;
@@ -26,7 +24,6 @@ public class SavesController {
         List<Save> res = savesDAO.findAll();
         System.out.println(res);
         return res;
-        //return res.toArray(new Save[res.size()]);
     }
 
     @Operation(summary = "Renvoie la liste des sauvegardes", description = "va chercher la liste des sauvegardes du joueur dont l'id est renseigné dans le path")
