@@ -1,71 +1,39 @@
 package com.DD_microservices.Gestion_game.model.Misc.Items;
 
-import com.DD_microservices.Gestion_game.model.Board.CaseVide;
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Board.Tyle;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
+import jakarta.persistence.*;
 
-public class Item extends CaseVide {
+public abstract class Item extends Tyle {
 
-    private int ItemValue;
+    private int id;
+    protected String type;
+    protected String name;
 
-    private String name;
-
-    public Item(int id) {
-        super(id);
+    public Item(String type, String name, int forceAttack) {
+        this.type = type;
+        this.name = name;
+        this.forceAttack = forceAttack;
     }
 
+    protected int forceAttack ;
     public Item() {
-        super();
-    }
-    public int interaction(Hero hero) {
-        System.out.println("Pouf, je vois un objet par terre !");
-
-        if (name.equals("Weapon") || name.equals("Spell")) {
-            return interactAttack(hero);
-        } else {
-           return interactPotion(hero);
-        }
     }
 
-    public int interactAttack(Hero hero) {
-
-        System.out.println("Ouuuh, c'est un equipement offensif !");
-
-        if (hero.getType().equals("Warrior") && name.equals("Weapon")) {
-            hero.setForceAttack(hero.getForceAttack() + getItemValue());
-            if (hero.getForceAttack() > 10) {
-                hero.setForceAttack(10);
-            }
-            System.out.println("Tes nouveaux points d'attaque: " + hero.getForceAttack());
-        }
-        else if (hero.getType().equals("Wizard") && name.equals("Spell")) {
-            hero.setForceAttack(hero.getForceAttack() + getItemValue());
-            if (hero.getForceAttack() > 15) {
-                hero.setForceAttack(15);
-            }
-            System.out.println("Nouveaux points d'attaque: " + hero.getForceAttack());
-        } else {
-            System.out.println("Mais il ne se passe rien...");
-        }
-        return hero.getForceAttack();
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getForceAttack() {
+        return forceAttack;
     }
 
-    public int interactPotion(Hero hero) {
-        System.out.println("Ouuuh, c'est une potion !");
-
-        hero.setLife(hero.getLife() + getItemValue());
-
-        if ((hero.getType().equals("Warrior") && hero.getLife() > 10)) {
-            hero.setLife(10);
-        }
-        if ((hero.getType().equals("Wizard") && hero.getLife() > 15)) {
-            hero.setLife(15);
-        }
-
-        System.out.println("Nouveaux points de vie: " + hero.getLife());
-        return hero.getLife();
+    public void setForceAttack(int forceAttack) {
+        this.forceAttack = forceAttack;
     }
 
-    public int getItemValue() {
-        return ItemValue;
+    public int getId() {
+        return id;
     }
+
+
 }

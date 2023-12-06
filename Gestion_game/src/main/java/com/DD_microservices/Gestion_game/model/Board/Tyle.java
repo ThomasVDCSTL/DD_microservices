@@ -1,6 +1,6 @@
 package com.DD_microservices.Gestion_game.model.Board;
 
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,7 +20,7 @@ public abstract class Tyle {
         this.id = -1;
     }
 
-    abstract int interaction(Hero hero);
+    public abstract int interaction(Personnage hero);
 
     public int getId() {
         return id;
