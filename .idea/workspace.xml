@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="RunManager" selected="Spring Boot.GestionPersonnagesObjetsApplication">
+  <component name="RunManager" selected="Spring Boot.MenuApplication">
     <configuration name="GestionGameApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Gestion_game" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.DD_microservices.Gestion_game.GestionGameApplication" />
