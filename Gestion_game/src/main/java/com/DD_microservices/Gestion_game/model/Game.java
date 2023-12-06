@@ -1,51 +1,53 @@
 package com.DD_microservices.Gestion_game.model;
 
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 import com.DD_microservices.Gestion_game.model.Board.Board;
-import jakarta.persistence.Entity;
-import org.springframework.stereotype.Repository;
+import io.swagger.v3.oas.annotations.Operation;
 
 public class Game {
 
     private int position;
     private int dice;
     private Board board;
-    private Hero hero;
+    private Personnage hero;
 
-    public Game(Hero hero) {
+    public Game(Personnage hero) {
         this.hero = hero;
         position = hero.getPosition();
         board = new Board();
     }
 
+    @Operation(summary = "lance le dé")
     public void tossDice() {
         dice = 1 + (int) (Math.random() * (6));
     }
 
+    @Operation(summary = "avance du nombre de cases affiché par le dé")
     public void go() {
         tossDice();
         position += dice;
         if (position > 64) { position = 64; }
-//            return "Tu as fait " + dice + ", et tu es sur la case " + position + "/64";
+        System.out.println("Tu as fait " + dice + ", et tu es sur la case " + position + "/64");
     }
 
-    public String play(Hero hero) {
+    @Operation(summary = "avance en bouclant jusque la case 64")
+    public String play(Personnage hero) {
 
         while (position < board.getSize()) {
 
             go();
-//            board.showCaseInfo(position - 1);
+            board.showCaseInfo(position - 1);
 
-            int interact = board.makeInteraction(position-1, hero);
+//            int interact = board.makeInteraction(position-1, hero);
 
 //             interaction avec ennemy -> return niveau de vie de l'ennemi, si <= 0, ennemi mort
-            if (interact <= 0) {
-                board.eraseCase(position-1);
-            }
-
-//            if (position >= board.getSize()) {
-//                return "Gagné !";
+//            if (interact <= 0) {
+//                board.eraseCase(position-1);
 //            }
+
+            if (position >= board.getSize()) {
+                return "Gagné !";
+            }
 
 //          Si le niveau de vie du heros est <0
 
