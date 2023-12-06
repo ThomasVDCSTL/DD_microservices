@@ -1,6 +1,6 @@
 package com.DD_microservices.Gestion_game.model.Board;
 
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 
 public class CaseVide extends Tyle {
 
@@ -11,9 +11,9 @@ public class CaseVide extends Tyle {
         super();
     }
 
-    public int interaction(Hero hero) {
+    public int interaction(Personnage hero) {
 //        System.out.println("Ouf !");
-        return 0;
+        return 5;
     }
 
     public String toString() {
