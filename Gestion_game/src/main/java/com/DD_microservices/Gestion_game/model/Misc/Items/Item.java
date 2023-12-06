@@ -1,14 +1,11 @@
 package com.DD_microservices.Gestion_game.model.Misc.Items;
 
+import com.DD_microservices.Gestion_game.model.Board.Tyle;
 import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 import jakarta.persistence.*;
 
-@Table(name= "object")
-@Entity
-public abstract class Item {
+public abstract class Item extends Tyle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     protected String type;
     protected String name;

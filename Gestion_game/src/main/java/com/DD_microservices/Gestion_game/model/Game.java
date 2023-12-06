@@ -1,18 +1,16 @@
 package com.DD_microservices.Gestion_game.model;
 
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 import com.DD_microservices.Gestion_game.model.Board.Board;
-import jakarta.persistence.Entity;
-import org.springframework.stereotype.Repository;
 
 public class Game {
 
     private int position;
     private int dice;
     private Board board;
-    private Hero hero;
+    private Personnage hero;
 
-    public Game(Hero hero) {
+    public Game(Personnage hero) {
         this.hero = hero;
         position = hero.getPosition();
         board = new Board();
@@ -29,7 +27,7 @@ public class Game {
 //            return "Tu as fait " + dice + ", et tu es sur la case " + position + "/64";
     }
 
-    public String play(Hero hero) {
+    public String play(Personnage hero) {
 
         while (position < board.getSize()) {
 

@@ -1,7 +1,7 @@
 package com.DD_microservices.Gestion_game.model.Board;
 
-import com.DD_microservices.Gestion_game.model.Misc.Enemies.Enemy;
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Misc.Items.Potion;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 import com.DD_microservices.Gestion_game.model.Misc.Items.Item;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -25,7 +25,7 @@ public class Board {
             if (i<10) {
                 board.add(new CaseVide(i));
             } else {
-                board.add(new Item(i));
+                board.add(new Potion("Petite", 3, "Potion"));
             }
             //ajouter random + cases plus spécifiques
         }
@@ -40,7 +40,7 @@ public class Board {
         System.out.println(board.get(position));
     }
 
-    public int makeInteraction(int position, Hero hero) {
+    public int makeInteraction(int position, Personnage hero) {
         return board.get(position).interaction(hero);
     }
 

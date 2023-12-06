@@ -1,15 +1,14 @@
 package com.DD_microservices.Gestion_game.web.controller;
 
 import com.DD_microservices.Gestion_game.model.Game;
-import com.DD_microservices.Gestion_game.model.Misc.Hero;
+import com.DD_microservices.Gestion_game.model.Misc.Personnage;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GameController {
         private Game game;
-        private Hero hero = new Hero(10, 8, "Warrior");
+        private Personnage hero = new Personnage("Loulou", "Warrior", 10, 8);
         public GameController() {
             this.game = game;
         }
