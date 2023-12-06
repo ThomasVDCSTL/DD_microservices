@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RunManager" selected="Spring Boot.GestionPersonnagesObjetsApplication">
+    <configuration name="GestionGameApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gestion_game" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.DD_microservices.Gestion_game.GestionGameApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GestionJoueursApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gestion_joueurs" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.DD_microservices.Gestion_joueurs.GestionJoueursApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GestionPersonnagesObjetsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gestion_personnages-objets" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.DD_microservices.Gestion_personnagesobjets.GestionPersonnagesObjetsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GestionSauvegardesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gestion_sauvegardes" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.DD_microservices.Gestion_sauvegardes.GestionSauvegardesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Menu" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dd_microservices.menu.MenuApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+</project>
