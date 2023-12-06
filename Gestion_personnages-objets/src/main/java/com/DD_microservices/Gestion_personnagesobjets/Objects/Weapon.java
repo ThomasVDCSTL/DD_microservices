@@ -5,6 +5,7 @@ import com.DD_microservices.Gestion_personnagesobjets.Persos.Personnage;
 public class Weapon extends Item{
    private String name;
 private int value ;
+private int forceAttack;
 
    public Weapon(String name, int value) {
       this.name = name;
