@@ -19,10 +19,11 @@ public class GameController {
 
 //        @GetMapping("/gestionPerso")
 //        public Personnage getPerso() {
-//            String url = "http://localhost:8080/personnage/2";
+//            String url = "http://172.22.114.61:8080/personnage/2";
 //            ResponseEntity<Personnage> response = restTemplate.getForEntity(url, Personnage.class);
 //            return response.getBody();
 //        }
+
         @Operation(summary = "affiche le menu original + résumé du joueur")
         @GetMapping(value = "/game")
         public String originalMenu(Personnage hero) {
@@ -39,8 +40,10 @@ public class GameController {
         @Operation(summary = "Affiche la dernière case, via le game")
         @GetMapping(value = "/game/1")
           public String startGame() {
-            game = new Game(hero);
-            return game.play(hero);
+            String url = "http://172.22.114.61:8080/personnage/3";
+            ResponseEntity<Personnage> response = restTemplate.getForEntity(url, Personnage.class);
+            game = new Game(response.getBody());
+            return game.play(response.getBody());
         }
 
 
