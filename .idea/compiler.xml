@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Gestion_joueurs" />
+        <module name="Menu" />
         <module name="Gestion_personnages-objets" />
         <module name="Gestion_sauvegardes" />
         <module name="Gestion_game" />
@@ -19,6 +20,7 @@
       <module name="Gestion_joueurs" options="-parameters" />
       <module name="Gestion_personnages-objets" options="-parameters" />
       <module name="Gestion_sauvegardes" options="-parameters" />
+      <module name="Menu" options="-parameters" />
     </option>
   </component>
 </project>
