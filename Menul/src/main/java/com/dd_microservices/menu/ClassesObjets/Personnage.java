@@ -1,7 +1,6 @@
-package com.DD_microservices.Gestion_personnagesobjets.Persos;
+package com.dd_microservices.menu.ClassesObjets;
 
 
-import com.DD_microservices.Gestion_personnagesobjets.Objects.Item;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -122,6 +121,7 @@ public class Personnage implements Fighter {
             }
         }
     }
+
 
 
 }

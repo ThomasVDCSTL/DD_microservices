@@ -1,5 +1,9 @@
 package com.dd_microservices.menu;
 
+import com.dd_microservices.menu.ClassesObjets.Game;
+import com.dd_microservices.menu.ClassesObjets.JoueurData;
+import com.dd_microservices.menu.ClassesObjets.Personnage;
+import com.dd_microservices.menu.ClassesObjets.Save;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,38 +19,36 @@ public class MenuController {
 
     private final RestTemplate restTemplate= new RestTemplate();
     private SaveState saveState ;
-    private User player;
+
+    private Personnage hero;
+    private Game partie;
+    private Save actualSave;
+    private JoueurData player;
 
     public MenuController() {
     }
 
     /*---------------------Saves---------------------*/
-public List getSaveList(User user){
+public List getSaveList(JoueurData user){
     ResponseEntity<List> response = restTemplate.getForEntity("http://localhost:8085/save/"+user.getId(),List.class);
-    List<Saves> saveList;
-    for (Object save: response.getBody()
-         ) {
-        saveList.add(SaveDTO.refacto(save));
-    }
-    return saveList;
+    return response.getBody();
 }
 
-public Save getSave(User user){
+public Save getSave(JoueurData user){
     List<Save> saveList = getSaveList(user);
     /*todo
     interface graphique et choix de la save
      */
     int choice;
-
     saveState= SaveState.loaded;
     return saveList.get(choice);
 }
 
 public void saveGame(){
     if (saveState==SaveState.created) {
-        restTemplate.postForEntity("http://localhost:8085/save", saveDTO.getSave(this));
+        restTemplate.postForEntity("http://localhost:8085/save", new Save(player.getId(), hero.getId(),hero.getArme().getId(),hero.getLife(),partie.getBoard().getId(),partie.getPosition()));
     }else if (saveState==SaveState.loaded){
-        restTemplate.put("http://localhost:8085/save", saveDTO.getSave(this));
+        restTemplate.put("http://localhost:8085/save",actualSave.update(hero.getLife()));
     }
 }
 public void deleteGame(int id){
@@ -58,10 +60,19 @@ public void deleteGame(int id){
 
 
 
+
+
     /*---------------------Board---------------------*/
 
 
+
+
+
     /*---------------------Item---------------------*/
+
+
+
+
 
 
     /*---------------------Game---------------------*/
@@ -69,19 +80,15 @@ public void deleteGame(int id){
 
 
 
+
     /*---------------------User---------------------*/
     public List getUserList(){
-        ResponseEntity<List> response = restTemplate.getForEntity("http://localhost:8081/Joueurs",List.class);
-        List<User> saveList;
-        for (Object save: response.getBody()
-        ) {
-            userList.add(UserDTO.refacto(user));
-        }
-        return saveList;
+        ResponseEntity<List> response = restTemplate.getForEntity("http://localhost:8083/Joueurs",List.class);
+        return response.getBody();
     }
 
-    public User getUser(){
-        List<User> userList = getUserList();
+    public JoueurData getUser(){
+        List<JoueurData> userList = getUserList();
     /*todo
 interface graphique et choix du user
      */
@@ -92,19 +99,19 @@ interface graphique et choix du user
 
     public void saveUser(){
 
-            restTemplate.put("http://localhost:8081/Joueurs", this.player);
+            restTemplate.put("http://localhost:8083/Joueurs", this.player);
 
     }
     public void deleteUser(int id){
-        restTemplate.delete("http://localhost:8081/Joueurs/"+id);
+        restTemplate.delete("http://localhost:8083/Joueurs/"+id);
     }
-    public User createUser(){
+    public JoueurData createUser(){
         /*todo
     interface graphique et creation user
 
      */
 
-        restTemplate.put("http://localhost:8081/Joueurs", this.player);
+        restTemplate.put("http://localhost:8083/Joueurs", this.player);
         return newUser;
     }
 
