@@ -33,6 +33,8 @@ public class Game {
     @Operation(summary = "avance en bouclant jusque la case 64")
     public String play(Personnage hero) {
 
+        System.out.println("Salut " + hero.getName() + "! Tu es un " + hero.getType() + ", tu as " + hero.getLife() + " points de vie et " + hero.getStrength() + " force d'attaque!");
+
         while (position < board.getSize()) {
 
             go();
